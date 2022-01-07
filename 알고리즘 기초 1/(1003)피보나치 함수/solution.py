@@ -29,3 +29,17 @@ for i in range(turn):
     
     print(fib_zero(num), end=' ')
     print(fib_one(num))
+
+"""
+recursive DP로 푸는 피보나치
+
+fib_arr = [0, 1]
+
+def fib_rec(n):
+    if n < len(fib_arr):
+        return fib_arr[n]
+    else:
+        num = fib_rec(n-1) + fib_rec(n-2)
+        fib_arr.append(num)
+        return num
+"""
