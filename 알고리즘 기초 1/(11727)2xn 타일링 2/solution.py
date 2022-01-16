@@ -1,27 +1,18 @@
 num = int(input())
 
-def com(a, b):
-    res = 1
-    for i in range(b):
-        res *= a-i
-        res /= b-i
-    res = int(res)
+def tile(n):
+    
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 3
+    
+    tile_list = [1, 3]
+    
+    for i in range(2, n):
+        res = 2 * tile_list[i-2] + tile_list[i-1]
+        res = res % 10007
+        tile_list.append(res)
     return res
 
-def com_squ(a, b):
-    res = com(a, b)
-    res = res * 2**b
-    res = res % 10007
-    return res
-
-res = 0
-a = num
-b = 0
-
-while a >= b:
-    res += com_squ(a, b)
-    res = res % 10007
-    a -= 1
-    b += 1
-
-print(res)
+print(tile(num))
