@@ -1,20 +1,14 @@
 num = int(input())
 
-cost_char = list(input().split())
-cost = []
+cost = [0] + list(map(int, input().split()))
+dp = [0] * (num + 1)
 
-res = 0
+dp[1] = cost[1]
+dp[2] = max(cost[1]*2, cost[2])
 
-for i in range(num):
-    cost.append(int(cost_char[i])/(i+1))
-    
-while num != 0:
-    temp_list = cost[:num]
-    max_num = max(temp_list)
-    max_index = temp_list.index(max_num)
-    res += max_num * (max_index+1)
-    num -= max_index+1
-    
-res = int(res)
+for i in range(3, num+1):
+    dp[i] = cost[i]
+    for j in range(1, i//2 + 1):
+        dp[i] = max(dp[i], dp[i-j] + dp[j])
 
-print(res)
+print(dp[num])
