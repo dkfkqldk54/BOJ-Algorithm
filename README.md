@@ -3,7 +3,7 @@
 <p>
   <ul>
     <li>랭크: 실버1</a></li>
-    <li>해결 문제: 125개</li>
+    <li>해결 문제: 134개</li>
     <li>사용 언어: 파이썬</li>
     <li><a href="https://solved.ac/profile/dkfkqldk54">solved.ac</a></li>
   </ul>
