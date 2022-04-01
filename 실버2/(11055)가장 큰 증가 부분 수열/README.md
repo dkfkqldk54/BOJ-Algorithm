@@ -12,7 +12,7 @@
 <h2>풀이</h2>
 <ul>
   <li>수열을 num_list에 담는다. num_list와 동일한 원소를 갖는 dp를 만든다.</li>
-  <li>dp[i](1<=i<N)는 num_list[i]보다 작은 수(j)가 앞쪽에 위치 해있으면 dp[i]와 dp[j]에 num_list[i]를 더한 것 중 큰 숫자이다.</li>
+  <li>dp[i](1<=i<=N-1)는 num_list[i]보다 작은 수(j)가 앞쪽에 위치 해있으면 dp[i]와 dp[j]에 num_list[i]를 더한 것 중 큰 숫자이다.</li>
 </ul>
 <h2>팁</h2>
 <ul>
