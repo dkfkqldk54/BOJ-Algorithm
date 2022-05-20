@@ -4,7 +4,7 @@
   <ul>
     <li>랭크: 골드5</a></li>
     <li>해결 문제: 145개</li>
-    <li>사용 언어: 파이썬</li>
+    <li>사용 언어: <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/></li>
     <li><a href="https://solved.ac/profile/dkfkqldk54">solved.ac</a></li>
   </ul>
 </p>
