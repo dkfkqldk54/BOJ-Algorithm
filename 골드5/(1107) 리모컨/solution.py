@@ -1,4 +1,4 @@
-channel = [str(i) for i in range(500001)]
+channel = [str(i) for i in range(1000001)]
 target = input()
 n = int(input())
 
@@ -15,7 +15,7 @@ else:
     print(0)
   else:
     for i in range(n):
-      for j in range(500001):
+      for j in range(1000001):
         if channel[j].find(ban[i]) >= 0:
           channel[j] = 'X'
 
@@ -31,7 +31,7 @@ else:
       up = 0
       down = 0
 
-      while up_target < 500000:
+      while up_target < 1000000:
         up_target += 1
         if channel[up_target] != 'X':
           up = up_target - target
