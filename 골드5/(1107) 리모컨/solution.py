@@ -1,60 +1,46 @@
 channel = [str(i) for i in range(1000001)]
-target = input()
+target = int(input())
+target_str = str(target)
 n = int(input())
+diff_100 = abs(target-100)
 
 if n == 0:
-  if target == '100':
-    print(0)
-  else:
-    print(len(target))
+  res = min(len(target_str), diff_100)
+  print(res)
 
 else:
   ban = list(input().split())
+  for i in ban:
+    for j in range(1000001):
+      if i in channel[j]:
+        channel[j] = 'X'
 
-  if target == '100':
-    print(0)
+  if target_str in channel:
+    res = min(len(target_str), diff_100)
+    print(res)
+  
   else:
-    for i in range(n):
-      for j in range(1000001):
-        if channel[j].find(ban[i]) >= 0:
-          channel[j] = 'X'
-
-    if target in channel:
-      print(len(target))
-
-    else:
-      channel[100] = '100'
-
-      target = int(target)
-      up_target = target
-      down_target = target
-      up = 0
-      down = 0
-
-      while up_target < 1000000:
-        up_target += 1
-        if channel[up_target] != 'X':
-          up = up_target - target
-          break
-
-      while down_target >= 0:
-        down_target -= 1
-        if channel[down_target] != 'X':
-          down = target - down_target
-          break
+    up, down = 0, 0
+    up_change, down_change = False, False
+    while target+up < 1000000:
+      up += 1
+      if channel[target+up] != 'X':
+        up_change = True
+        break
+    while target-down > 0:
+      down += 1
+      if channel[target-down] != 'X':
+        down_change = True
+        break
     
-      if up == 0 and down != 0:
-        res = len(channel[down_target])
-        res += down
-      elif down == 0 and up != 0:
-        res = len(channel[up_target])
-        res += up
-      else:
-        if up >= down:
-          res = len(channel[down_target])
-          res += down
-        else:
-          res = len(channel[up_target])
-          res += up
-
+    if up_change == False and down_change == True:
+      res = min(len(channel[target-down]) + down, diff_100)
       print(res)
+    elif up_change == True and down_change == False:
+      res = min(len(channel[target+up]) + up, diff_100)
+      print(res)
+    elif up_change == True and down_change == True:
+      res = min(len(channel[target-down])+ down, len(channel[target+up]) + up, diff_100)
+      print(res)
+    else:
+      print(diff_100)
